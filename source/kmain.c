@@ -1,7 +1,11 @@
 #include "../drivers/frame_buffer.h"
+#include "../drivers/interrupts.h"
 
 int kmain(void) {
-    char msg[] = "Welcome to My Worksheet 2 OS";
+    interrupts_install_idt();
+
+    char msg[] = "Welcome to Tiny OS. Type below:\n";
     fb_write(msg, sizeof(msg) - 1);
+
     return 0;
 }

@@ -1,4 +1,4 @@
-OBJECTS = source/loader.o source/kmain.o drivers/io.o drivers/frame_buffer.o
+OBJECTS = source/loader.o source/kmain.o drivers/io.o drivers/frame_buffer.o drivers/pic.o drivers/interrupts.o drivers/interrupt_handlers.o drivers/hardware_interrupt_enabler.o drivers/interrupt_asm.o drivers/keyboard.o
 CC = gcc
 CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -Wall -Wextra -c
 LDFLAGS = -T source/link.ld -melf_i386
