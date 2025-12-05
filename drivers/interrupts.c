@@ -23,7 +23,7 @@ void interrupts_install_idt() {
     load_idt((s32int) &idt);
 
     pic_remap(PIC_1_OFFSET, PIC_2_OFFSET);
-    outb(0x21, 0xFD); // Unmask Keyboard
+    outb(0x21, 0xFD);
     enable_hardware_interrupts();
 }
 
@@ -38,7 +38,7 @@ void interrupt_handler(struct cpu_state cpu, u32int interrupt, struct stack_stat
             char str[2];
             str[0] = ascii;
             str[1] = '\0';
-            fb_write(str, 1);
+            fb_write(str, 1, FB_WHITE); /* Added FB_WHITE color */
         }
         pic_acknowledge(interrupt);
     }
